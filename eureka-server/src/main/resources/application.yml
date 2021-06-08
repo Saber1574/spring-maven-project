@@ -1,0 +1,29 @@
+#定义eureka服务器端口号
+server:
+  port: 8888
+
+spring:
+  application:
+    name: eureka-server
+
+#eureka:
+#  client:
+#    register-with-eureka: false
+#
+#    fetch-registry: false
+#
+#    service-url:
+#      defaultZone: http://192.168.1.123:${server.port}/eureka
+
+eureka:
+  client:
+    #将当前的eureka服务注册到另外一个Eureka服务器上（虚拟机）
+    register-with-eureka: true
+   #同时向另外一台Eureka服务器索要信息
+    fetch-registry: true
+   #当前eureka服务器的服务注册到虚拟机上的Eureka
+    service-url:
+      defaultZone: http://192.168.57.1:8888/eureka
+
+  instance:
+    prefer-ip-address: true

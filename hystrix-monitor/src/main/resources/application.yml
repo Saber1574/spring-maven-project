@@ -1,0 +1,6 @@
+#定义熔断器端口号
+server:
+   port: 7777
+spring:
+  application:
+    name: hystrix-monitor

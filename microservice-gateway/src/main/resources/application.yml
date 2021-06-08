@@ -1,0 +1,28 @@
+#声明网关的端口号
+server:
+  port: 7001
+
+#声明网关微服务的名称
+spring:
+  application:
+    name: microservice-gateway
+
+#向Eureka服务器注册网关微服务
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://182.168.57.1:8888/eureka,http://192.168.57.1:8888/eureka
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    microservice-user:
+      path: /microservice-user
+      serviceId: microservice-user
+    microservice-movie:
+      path: /microservice-movie
+      serviceId: microservice-movie
+

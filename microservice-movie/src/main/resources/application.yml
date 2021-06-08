@@ -1,0 +1,21 @@
+#声明电影微服务
+server:
+  port: 8001
+
+spring:
+  application:
+    name: microservice-movie
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 10
+    service-url:
+      defaultZone: http://192.168.1.123:8888/eureka
+
+
+#开启hystrix（熔断机制）
+feign:
+  hystrix:
+    enabled: true
